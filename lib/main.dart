@@ -1,16 +1,17 @@
 //import 'package:flutter/cupertino.dart';//
 import 'package:flutter/material.dart';
+import './questao.dart';
 
 main() => runApp(PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
-  var perguntaSelecionada = 0;
+  var _perguntaSelecionada = 0;
 
   void _responder() {
     setState(() {
-      perguntaSelecionada++;
+      _perguntaSelecionada++;
     });
-    print(perguntaSelecionada);
+    print(_perguntaSelecionada);
   }
 
   @override
@@ -28,7 +29,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Column(
           children: [
-            Text(perguntas[perguntaSelecionada]),
+            Questao(perguntas[_perguntaSelecionada]),
             RaisedButton(
               child: Text('Resposta 1'),
               //onPressed: responder(), //Chamando a função responder()
