@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 main() => runApp(PerguntaApp());
 
 class PerguntaApp extends StatelessWidget {
+  var perguntaSelecionada = 0;
+
   void responder() {
-    print('Pergunta respondida!');
+    perguntaSelecionada++;
+    print(perguntaSelecionada);
   }
 
   void Function() funcaoQueRetornaUmaOutraFuncao() {
@@ -29,29 +32,19 @@ class PerguntaApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text(perguntas[0]),
+            Text(perguntas[perguntaSelecionada]),
             RaisedButton(
               child: Text('Resposta 1'),
               //onPressed: responder(), //Chamando a função responder()
-              onPressed:
-                  responder, //Passando uma função como parâmetro - responder
+              onPressed: responder,
             ),
             RaisedButton(
               child: Text('Resposta 2'),
-              onPressed: funcaoQueRetornaUmaOutraFuncao(),
+              onPressed: responder,
             ),
             RaisedButton(
               child: Text('Resposta 3'),
               onPressed: responder,
-            ),
-            RaisedButton(
-                child: Text('Resposta 4'),
-                onPressed: () {
-                  print('Resposta 4');
-                }),
-            RaisedButton(
-              child: Text('Resposta 5'),
-              onPressed: () => print('Resposta 5'),
             ),
           ],
         ),
